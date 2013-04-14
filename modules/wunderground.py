@@ -1,3 +1,12 @@
+"""
+wunderground.py - Phenny Weather Underground Module
+Copyright 2013, Jin Park - jinpark.net
+Modified from https://github.com/russellb/phennymods/blob/master/wunderground.py
+Licensed under the Eiffel Forum License 2.
+
+http://inamidst.com/phenny/
+"""
+
 import urllib
 import json
 

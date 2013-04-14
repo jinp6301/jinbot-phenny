@@ -1,3 +1,11 @@
+"""
+urbandictionary.py - Phenny Urban Dictionary Module
+Copyright 2013, Jin Park - jinpark.net
+Licensed under the Eiffel Forum License 2.
+
+http://inamidst.com/phenny/
+"""
+
 import urllib, json
 import string
 

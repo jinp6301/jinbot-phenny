@@ -11,7 +11,11 @@ import urllib
 import json
 
 def wuweatherf(phenny, input):
-    loc = input.group(2)
+    nickdict = dict(jin = '11361', Karura = 'v6n2z4', cbirkett = 'n2t1k5', vertigo = 'vancouver,wa', cetoole = 'redmond,wa', jewice = 'lulea,se', Fungi = 'tokyo,jp', PF = 'h3r3b6', locutox = 'YSCN')
+    if input.nick in nickdict and str(input.group(2)) == 'None':
+        loc = nickdict[input.nick]
+    else:
+        loc = input.group(2)
 
     #grab weather from api
     try:

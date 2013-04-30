@@ -11,8 +11,11 @@ import urllib
 import json
 
 def wuweather(phenny, input):
-    loc = input.group(2)
-
+    nickdict = dict(jin = '11361', Karura = 'v6n2z4', cbirkett = 'n2t1k5', vertigo = 'vancouver,wa', cetoole = 'redmond,wa', jewice = 'lulea,se', Fungi = 'tokyo,jp', PF = 'h3r3b6', locutox = 'YSCN')
+    if input.nick in nickdict and str(input.group(2)) == 'None':
+        loc = nickdict[input.nick]
+    else:
+        loc = input.group(2)
     #grab weather from api
     try:
         weather = json.loads(urllib.urlopen('http://api.wunderground.com/api/42c2a37f0486227b/conditions/almanac/astronomy/forecast/pws:0/q/' + loc +'.json').read())
@@ -49,10 +52,8 @@ def wuweather(phenny, input):
         #output the averages, sunrise, moon
         #some locations don't have an almanac
         if weather['almanac']['airport_code'] != "":
-            almanac_output = "Avg High: %sF, %sC Low: %sF, %sC " % \
-            (weather['almanac']['temp_high']['normal']['F'],
-            weather['almanac']['temp_high']['normal']['C'],
-            weather['almanac']['temp_low']['normal']['F'],
+            almanac_output = "Avg High:  %sC Low: %sC " % \
+            (weather['almanac']['temp_high']['normal']['C'],
             weather['almanac']['temp_low']['normal']['C'])
         else:
             almanac_output = ""
@@ -69,10 +70,9 @@ def wuweather(phenny, input):
         '''
 
         #output the current weather
-        phenny.say("%s Current: %s %sF, %sC Humidity: %s, Wind: %s" % \
+        phenny.say("%s Current: %s %sC Humidity: %s, Wind: %s" % \
         (city,
         weather['current_observation']['weather'],
-        weather['current_observation']['temp_f'],
         weather['current_observation']['temp_c'],
         weather['current_observation']['relative_humidity'],
         weather['current_observation']['wind_string']))

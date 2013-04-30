@@ -1,9 +1,7 @@
 
 def inp(phenny, input):
-	hi, hello, hey = input.groups()
-	phenny.say(hi)
-	phenny.say(hello)
-	phenny.say(hey)
+	phenny.say(input.group(2).split(', ')[1])
+
 
 
 inp.commands = ['inp']

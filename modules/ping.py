@@ -10,7 +10,10 @@ import random
 def hello(phenny, input): 
    greeting = random.choice(('Hi', 'Hey', 'Hello'))
    punctuation = random.choice(('', '!'))
-   phenny.say(greeting + ' ' + input.nick + punctuation)
+   if input.nick == 'cbirkett':
+      phenny.say(greeting + ' ' + 'bob sensei' + punctuation)
+   else:
+      phenny.say(greeting + ' ' + input.nick + punctuation)
 hello.rule = r'(?i)(hi|hello|hey) $nickname[ \t]*$'
 
 def interjection(phenny, input): 

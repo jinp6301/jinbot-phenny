@@ -79,12 +79,16 @@ tr.priority = 'low'
 def tr2(jenni, input):
     """Translates a phrase, with an optional language hint."""
     if not input.group(2): return jenni.say("No input provided.")
-    command = input.group(2).encode('utf-8')
+    try:
+        abc = input.group(2).split(', ')[2]
+        command = input.group(2).split(', ')[0]
+        args = [input.group(2).split(', ')[1], input.group(2).split(', ')[2]]
+    except:
+        command = input.group(2).encode('utf-8')
+        args = ['auto', 'en']
 
     def langcode(p):
         return p.startswith(':') and (2 < len(p) < 10) and p[1:].isalpha()
-
-    args = ['auto', 'en']
 
     for i in xrange(2):
         if not ' ' in command: break
@@ -109,7 +113,7 @@ def tr2(jenni, input):
 
         jenni.reply(msg)
     else: jenni.reply('Language guessing failed, so try suggesting one!')
-
+    
 tr2.commands = ['tr']
 tr2.priority = 'low'
 

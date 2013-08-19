@@ -3,6 +3,8 @@ jinbot-phenny
 
 IRC bot forked off of phenny - http://inamidst.com/phenny/
 
+Most of my work has been in the modules folder
+
 <b>Installation:</b>
 
 1) Run ./phenny - this creates a default config file
@@ -14,4 +16,4 @@ IRC bot forked off of phenny - http://inamidst.com/phenny/
 Enjoy!
 
 -- 
-Sean B. Palmer, http://inamidst.com/sbp/
+Jin Park - jinpark.net
